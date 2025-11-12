@@ -17,7 +17,12 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories');
             $table->integer("price");
             $table->integer("stock");
+            $table->year("release_year");
+            $table->string("color");
+            $table->string("made_in");
+            $table->enum("status", ["Active", "Out Of Stock", "Discontinued", "Draft"]);
             $table->string("image");
+            $table->text("description");
             $table->timestamps();
         });
     }
