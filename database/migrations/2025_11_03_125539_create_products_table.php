@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string("made_in");
             $table->enum("status", ["Active", "Out Of Stock", "Discontinued", "Draft"]);
             $table->string("image");
-            $table->text("description");
             $table->timestamps();
         });
     }

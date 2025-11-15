@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -27,9 +28,11 @@ class PageController extends Controller
     public function product()
     {
         $products = Product::all();
+        $categories = Category::all();
 
         return view("admin.product", [
-            "products" => $products
+            "products" => $products,
+            "categories" => $categories
         ]);
     }
 
