@@ -23,4 +23,6 @@ Route::controller(ProductController::class)
     ->as("product.")
     ->group(function () {
         Route::post("/create", "create")->name("create");
+        Route::post("/update/{id}", "update")->name("update");
+        Route::get("/delete/{id}", "delete")->name("delete");
     });

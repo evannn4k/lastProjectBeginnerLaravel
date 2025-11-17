@@ -17,7 +17,8 @@
 
 <body>
     <style>
-        *, html {
+        *,
+        html {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -69,7 +70,7 @@
         }
     </style>
     @yield("css")
-    
+
     <div class="d-flex vh-100">
         <nav class="d-flex flex-column justify-content-between">
             <div class="">
@@ -135,7 +136,19 @@
 
     @yield("js")
 
+
     <script src="{{ asset("assets/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session("success"))
+    <script>
+        Swal.fire({
+            title: "Success!",
+            icon: "success",
+            text: "{{ session('success') }}",
+            draggable: true
+        });
+    </script>
+    @endif
 </body>
 
 </html>
