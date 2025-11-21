@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-end">
         <div class="">
             <h4>Product</h3>
-                <h6>manage products in this store</h6>
+            <h6>Manage products in this store</h6>
         </div>
         <div class="">
             <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#formCreate"><i class="fa-solid fa-plus"></i> Add Product</button>
@@ -27,7 +27,7 @@
         <table class="table table-hover fs-6">
             <thead class="table-light">
                 <tr>
-                    <th class="text-secondary fw-normal"></th>
+                    <th class="text-secondary fw-normal" width="50px"></th>
                     <th class="text-secondary fw-normal">Image</th>
                     <th class="text-secondary fw-normal">Id Number</th>
                     <th class="text-secondary fw-normal">Name</th>
@@ -116,20 +116,20 @@
                                                 </div>
                                             </div>
                                             <div class="w-full d-flex justify-content-end gap-2">
-                                                <button 
-                                                data-id="{{ $product->id }}"
-                                                data-name="{{ $product->name }}"
-                                                data-category_id="{{ $product->category->id }}"
-                                                data-price="{{ $product->price }}"
-                                                data-stock="{{ $product->stock }}"
-                                                data-release_year="{{ $product->release_year }}"
-                                                data-color="{{ $product->color }}"
-                                                data-made_in="{{ $product->made_in }}"
-                                                data-status="{{ $product->status }}"
-                                                data-image="{{ $product->image }}"
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#formUpdate" 
-                                                class="btn btn-outline-dark update">update</button>
+                                                <button
+                                                    data-id="{{ $product->id }}"
+                                                    data-name="{{ $product->name }}"
+                                                    data-category_id="{{ $product->category->id }}"
+                                                    data-price="{{ $product->price }}"
+                                                    data-stock="{{ $product->stock }}"
+                                                    data-release_year="{{ $product->release_year }}"
+                                                    data-color="{{ $product->color }}"
+                                                    data-made_in="{{ $product->made_in }}"
+                                                    data-status="{{ $product->status }}"
+                                                    data-image="{{ $product->image }}"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#formUpdate"
+                                                    class="btn btn-outline-dark update">update</button>
                                                 <a href="{{ route("product.delete", $product->id) }}" class="btn btn-dark">delete</a>
                                             </div>
                                         </div>
@@ -156,10 +156,10 @@
 </div>
 
 <div class="modal fade" id="formCreate">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Create Product</h2>
+                <h3 class="modal-title">Create Product</h3>
                 <button class="btn btn-close" data-bs-dismiss="modal"></button>
             </div>
 
@@ -210,7 +210,7 @@
                             </select>
                         </div>
                         <div class="py-2 col-12">
-                            <label for="image" class="form-label">Image</label>    
+                            <label for="image" class="form-label">Image</label>
                             <input type="file" name="image" id="image" class="form-control">
                         </div>
                     </div>
@@ -226,7 +226,7 @@
 </div>
 
 <div class="modal fade" id="formUpdate">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title">Update Product</h2>
@@ -280,7 +280,7 @@
                             </select>
                         </div>
                         <div class="py-2 col-12">
-                            <label for="imageUpdate" class="form-label">Image</label>    
+                            <label for="imageUpdate" class="form-label">Image</label>
                             <input type="file" name="image" id="imageUpdate" class="form-control">
                         </div>
                     </div>
@@ -296,25 +296,23 @@
 </div>
 
 <script>
+    document.querySelectorAll(".update").forEach(button => {
+        button.addEventListener("click", () => {
 
-document.querySelectorAll(".update").forEach(button => {
-    button.addEventListener("click", () => {
+            let action = "{{ route('product.update',  ':id') }}"
+            action = action.replace(":id", button.getAttribute("data-id"))
 
-        let action = "{{ route('product.update', parameters: ':id') }}"
-        action = action.replace(":id", button.getAttribute("data-id"))
-
-        document.getElementById("formUpdateProduct").action = action
-        document.getElementById("nameUpdate").value = button.getAttribute("data-name")
-        document.getElementById("priceUpdate").value = button.getAttribute("data-price")
-        document.getElementById("stockUpdate").value = button.getAttribute("data-stock")
-        document.getElementById("category_idUpdate").value = button.getAttribute("data-category_id")
-        document.getElementById("release_yearUpdate").value = button.getAttribute("data-release_year")
-        document.getElementById("colorUpdate").value = button.getAttribute("data-color")
-        document.getElementById("made_inUpdate").value = button.getAttribute("data-made_in")
-        document.getElementById("statusUpdate").value = button.getAttribute("data-status")
-    })
-});
-
+            document.getElementById("formUpdateProduct").action = action
+            document.getElementById("nameUpdate").value = button.getAttribute("data-name")
+            document.getElementById("priceUpdate").value = button.getAttribute("data-price")
+            document.getElementById("stockUpdate").value = button.getAttribute("data-stock")
+            document.getElementById("category_idUpdate").value = button.getAttribute("data-category_id")
+            document.getElementById("release_yearUpdate").value = button.getAttribute("data-release_year")
+            document.getElementById("colorUpdate").value = button.getAttribute("data-color")
+            document.getElementById("made_inUpdate").value = button.getAttribute("data-made_in")
+            document.getElementById("statusUpdate").value = button.getAttribute("data-status")
+        })
+    });
 </script>
 
 @endsection

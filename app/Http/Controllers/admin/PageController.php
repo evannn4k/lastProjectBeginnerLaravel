@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Costumer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +18,11 @@ class PageController extends Controller
     
     public function costumer()
     {
-        return view("admin.costumer");
+        $costumers = Costumer::all();
+
+        return view("admin.costumer", [
+            "costumers" => $costumers
+        ]);
     }
 
     public function admin()
@@ -29,7 +34,7 @@ class PageController extends Controller
     {
         $products = Product::all();
         $categories = Category::all();
-
+        
         return view("admin.product", [
             "products" => $products,
             "categories" => $categories
@@ -38,7 +43,11 @@ class PageController extends Controller
 
     public function category()
     {
-        return view("admin.category");
+        $categories = Category::withCount('products')->orderByDesc("products_count")->get();
+
+        return view("admin.category", [
+            "categories" => $categories
+        ]);
     }
 
     public function order()

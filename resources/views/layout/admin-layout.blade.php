@@ -126,7 +126,7 @@
             </div>
 
             <div class="p-4 border-top">
-                <a href="" class="btn btn-outline-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                <a href="{{ route("login") }}" class="btn btn-outline-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
             </div>
         </nav>
         <main class="p-4 bg-secondary bg-opacity-10">
