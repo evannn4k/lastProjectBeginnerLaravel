@@ -126,7 +126,13 @@
             </div>
 
             <div class="p-4 border-top">
-                <a href="{{ route("login") }}" class="btn btn-outline-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                <form action="{{ route("logout") }}" method="POST">
+                    @csrf
+                    <button type="submit"class="btn btn-outline-danger">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </button>
+                </form>
+                <!-- <a href="{{ route("logout") }}" class="btn btn-outline-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</a> -->
             </div>
         </nav>
         <main class="p-4 bg-secondary bg-opacity-10">

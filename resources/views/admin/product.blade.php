@@ -23,7 +23,7 @@
                 <button class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
-
+ 
         <table class="table table-hover fs-6">
             <thead class="table-light">
                 <tr>

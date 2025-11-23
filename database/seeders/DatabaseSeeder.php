@@ -42,5 +42,11 @@ class DatabaseSeeder extends Seeder
         //     'status' => "Active",
         //     'image' => "samsung.jpg"
         // ]);
+         
+        User::factory()->create([
+            "name" => "evan",
+            "email" => "evan123@gmail.com",
+            "password" => "12345678",
+        ]);
     }
 }

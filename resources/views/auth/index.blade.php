@@ -1,1 +1,0 @@
-<a href="{{ route("dashboard") }}">masuk</a>

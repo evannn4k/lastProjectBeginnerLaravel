@@ -1,5 +1,7 @@
 @extends("layout.admin-layout")
 
 @section("content")
-dashboard
+
+hallo {{ Auth::user()->name }}
+
 @endsection
